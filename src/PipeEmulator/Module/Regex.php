@@ -58,4 +58,15 @@ class Regex extends ModuleBase implements ModuleInterface {
     }
     return $input;
   }
+
+  /**
+   * @{inheritdoc}
+   */
+  public function getContent() {
+    $output = '';
+    foreach ($this->rules as $rule) {
+      $output .= '<p>Field: ' . $rule->field->value . '<br>Match: ' . $rule->match->value . '<br>Replace: ' . $rule->replace->value . '</p>';
+    }
+    return $output;
+  }
 }
