@@ -208,6 +208,12 @@ class Pipe {
     return $result;
   }
 
+  /**
+   * Extracts the module position coordinates from the pipe definition.
+   *
+   * @param stdClass $pipe_working
+   *   Part of the pipe definition that contains a modules array property.
+   */
   protected function buildLayout($pipe_working) {
     foreach ($pipe_working->layout as $module) {
       $this->layout[$module->id]['x'] = $module->xy[0];
