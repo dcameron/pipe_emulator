@@ -8,12 +8,13 @@
 namespace PipeEmulator\Module;
 
 /**
- * Description of output
- *
- * @author David Cameron
+ * Defines a substr pipe module class.
  */
 class Substr extends ModuleBase implements ModuleInterface {
 
+  /**
+   * {@inheritdoc}
+   */
   public function __construct($module_definition, $outputs) {
     parent::__construct($module_definition, $outputs);
   }
