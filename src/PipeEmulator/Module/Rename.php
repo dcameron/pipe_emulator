@@ -8,12 +8,13 @@
 namespace PipeEmulator\Module;
 
 /**
- * Description of output
- *
- * @author David Cameron
+ * Defines a rename pipe module class.
  */
 class Rename extends ModuleBase implements ModuleInterface {
 
+  /**
+   * {@inheritdoc}
+   */
   public function __construct($module_definition, $outputs) {
     parent::__construct($module_definition, $outputs);
   }
