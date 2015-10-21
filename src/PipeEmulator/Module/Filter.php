@@ -109,4 +109,25 @@ class Filter extends ModuleBase implements ModuleInterface {
       return FALSE;
     }
   }
+
+  /**
+   * @{inheritdoc}
+   */
+  public function getLabel() {
+    return $this->id . ' - Filter - ' . $this->mode . ' - ' . $this->combine;
+  }
+
+  /**
+   * @{inheritdoc}
+   */
+  public function getContent() {
+    $output = '';
+    foreach ($this->rules as $rule) {
+      if (empty($rule->value->value)) {
+        continue;
+      }
+      $output .= trim($rule->value->value) . "<br>\n";
+    }
+    return $output;
+  }
 }
