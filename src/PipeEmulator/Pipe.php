@@ -40,7 +40,7 @@ class Pipe {
   /**
    * An array of module position coordinates, keyed by module ID.
    *
-   * @var array 
+   * @var array
    */
   protected $layout = array();
 
