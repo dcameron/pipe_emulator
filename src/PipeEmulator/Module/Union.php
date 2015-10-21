@@ -8,12 +8,13 @@
 namespace PipeEmulator\Module;
 
 /**
- * Description of output
- *
- * @author David Cameron
+ * Defines a union pipe module class.
  */
 class Union extends ModuleBase implements ModuleInterface {
 
+  /**
+   * {@inheritdoc}
+   */
   public function __construct($module_definition, $outputs) {
     parent::__construct($module_definition, $outputs);
   }
