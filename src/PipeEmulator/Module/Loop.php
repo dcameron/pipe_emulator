@@ -41,4 +41,11 @@ class Loop extends ModuleBase implements ModuleInterface {
   public function evaluateInput($input) {
     return $this->embed->evaluateInput($input);
   }
+
+  /**
+   * @{inheritdoc}
+   */
+  public function getContent() {
+    return '<div class="embedded-module"><div class="module-label">' . $this->embed->getLabel() . '</div>' . $this->embed->getContent() . '</div>';
+  }
 }
