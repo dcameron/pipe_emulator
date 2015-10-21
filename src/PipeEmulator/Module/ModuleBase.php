@@ -15,14 +15,14 @@ abstract class ModuleBase implements ModuleInterface {
   /**
    * The module's ID.
    *
-   * @var string 
+   * @var string
    */
   protected $id;
 
   /**
    * An array of module IDs to which the output of this module should be sent.
    *
-   * @var array 
+   * @var array
    */
   protected $outputs = array();
 
