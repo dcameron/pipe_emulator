@@ -57,6 +57,20 @@ class Pipe {
   }
 
   /**
+   * Returns the pipe's connection tree array.
+   */
+  public function getTree() {
+    return $this->tree;
+  }
+
+  /**
+   * Returns the pipe's modules array.
+   */
+  public function getModules() {
+    return $this->modules;
+  }
+
+  /**
    * Extracts the tree of module connections from the pipe definition.
    *
    * @param stdClass $pipe_working
