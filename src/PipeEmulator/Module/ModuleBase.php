@@ -53,4 +53,18 @@ abstract class ModuleBase implements ModuleInterface {
   public function evaluateInput($input) {
     return $input;
   }
+
+  /**
+   * @{inheritdoc}
+   */
+  public function getLabel() {
+    return $this->id . ' - ' . substr(get_class($this), 20);
+  }
+
+  /**
+   * @{inheritdoc}
+   */
+  public function getContent() {
+    return '';
+  }
 }

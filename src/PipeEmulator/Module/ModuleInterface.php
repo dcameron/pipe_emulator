@@ -31,4 +31,20 @@ interface ModuleInterface {
    *   pipe.  Array containing the results of the processed input.
    */
   public function evaluateInput($input);
+
+  /**
+   * Returns the text to be displayed for the module's label in the UI.
+   *
+   * @return string
+   *   The text to be displayed.
+   */
+  public function getLabel();
+
+  /**
+   * Returns the text to be displayed for the module's content in the UI.
+   *
+   * @return string
+   *   The text to be displayed.
+   */
+  public function getContent();
 }
