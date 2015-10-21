@@ -5,7 +5,7 @@
  * Contains \PipeEmulator\Pipe.
  */
 
-namespace PipeEmulator\PipeUI;
+namespace PipeEmulator;
 
 /**
  * Defines a pipe user interface class.
