@@ -16,31 +16,29 @@ class Pipe {
 
   protected $pipe;
 
-  protected $pipe_internals;
-
   protected $tree = array();
 
   protected $modules = array();
 
   public function __construct($pipe_definition) {
     $this->pipe = json_decode($pipe_definition);
-    $this->pipe_internals = json_decode($this->pipe->PIPE->working);
+    $pipe_working = json_decode($this->pipe->PIPE->working);
 
     // Build the pipe's tree.
-    $this->buildTree();
+    $this->buildTree($pipe_working);
 
     // Build the pipe's modules.
-    $this->buildModules();
+    $this->buildModules($pipe_working);
   }
 
-  protected function buildTree() {
-    foreach ($this->pipe_internals->wires as $wire) {
+  protected function buildTree($pipe_working) {
+    foreach ($pipe_working->wires as $wire) {
       $this->tree[$wire->src->moduleid][] = $wire->tgt->moduleid;
     }
   }
 
-  protected function buildModules() {
-    foreach ($this->pipe_internals->modules as $module) {
+  protected function buildModules($pipe_working) {
+    foreach ($pipe_working->modules as $module) {
       $type = $module->type;
       $class = 'PipeEmulator\Module\\' . ucfirst($type);
       $outputs = isset($this->tree[$module->id]) ? $this->tree[$module->id] : array();
