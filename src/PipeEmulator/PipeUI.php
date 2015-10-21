@@ -71,8 +71,7 @@ class PipeUI {
    * In Yahoo! Pipes, the coordinates of modules could have negative values. If
    * those negative values are applied to the positions of HTML elements, then
    * they will be rendered off-screen. Find the lowest negative values and
-   * return them so they can be added used to offset the positions of the
-   * modules.
+   * return them so they can be used to offset the positions of the modules.
    *
    * @param array $layout
    *   An array of module position coordinates.
