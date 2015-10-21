@@ -9,6 +9,8 @@ namespace PipeEmulator\Module;
 
 /**
  * Defines a split pipe module class.
+ *
+ * In Yahoo! Pipes split modules sent their input to multiple outputs.
  */
 class Split extends ModuleBase implements ModuleInterface {
 
