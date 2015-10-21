@@ -9,6 +9,18 @@ namespace PipeEmulator;
 
 /**
  * Defines a pipe user interface class.
+ *
+ * This class is used to create a visual representation of a pipe, similar to
+ * how it appeared in the Yahoo! Pipes UI. Currently, this replacement UI is
+ * static. Elements cannot be moved or edited. Also, there are no wires
+ * connecting the modules. In the future, it may be possible to extend the
+ * functionality of the class to allow those abilities.
+ *
+ * I initially wrote this as quick and dirty procedural code just so I could see
+ * the layout of modules in some very complex pipes. I actually printed out the
+ * results and drew the connections myself. I didn't want to lose that code in
+ * case I wanted to build out a replacement editing UI in the future, so I built
+ * this class to contain it.
  */
 class PipeUI {
 
