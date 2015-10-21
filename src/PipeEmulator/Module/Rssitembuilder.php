@@ -8,21 +8,43 @@
 namespace PipeEmulator\Module;
 
 /**
- * Description of output
+ * Defines an rssitembuilder pipe module class.
  *
- * @author David Cameron
+ * In Yahoo! Pipes rssitembuilder modules performed operations on input fields
+ * from RSS feed items. At least two operations were possible:
+ * - Copying one field to another.
+ * - Replacing the contents of a field with a user-defined value.
  */
 class Rssitembuilder extends ModuleBase implements ModuleInterface {
 
+  /**
+   * A stdClass object with properties whose names represent RSS item fields.
+   * Each property is also a stdClass object that will have one of two
+   * properties:
+   * - subkey: This is the name of another RSS item field whose contents should
+   *   be copied into this field.
+   * - value: This is a user-defined string that should be copied into this
+   *   field.
+   *
+   * @var stdClass 
+   */
   protected $conf;
 
+  /**
+   * {@inheritdoc}
+   */
   public function __construct($module_definition, $outputs) {
     parent::__construct($module_definition, $outputs);
 
     $this->conf = $module_definition->conf;
   }
 
+  /**
+   * Replaces text in the input's array elements with another value.
+   */
   public function evaluateInput($input) {
+    // More RSS item elements than these six are included in the conf object. I
+    // only needed to check these six when I first wrote this script.
     $rss_fields = array('title', 'description', 'link', 'pubdate', 'author', 'guid');
 
     foreach ($rss_fields as $field) {
