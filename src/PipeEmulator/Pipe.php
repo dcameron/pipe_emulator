@@ -38,6 +38,13 @@ class Pipe {
   protected $modules = array();
 
   /**
+   * An array of module position coordinates, keyed by module ID.
+   *
+   * @var array 
+   */
+  protected $layout = array();
+
+  /**
    * Constructs a pipe object.
    *
    * @param string $pipe_definition
@@ -54,6 +61,9 @@ class Pipe {
 
     // Build the pipe's modules.
     $this->buildModules($pipe_working);
+
+    // Build the module positions array.
+    $this->buildLayout($pipe_working);
   }
 
   /**
@@ -68,6 +78,13 @@ class Pipe {
    */
   public function getModules() {
     return $this->modules;
+  }
+
+  /**
+   * Returns the pipe's module layout array.
+   */
+  public function getLayout() {
+    return $this->layout;
   }
 
   /**
@@ -189,5 +206,12 @@ class Pipe {
       }
     }
     return $result;
+  }
+
+  protected function buildLayout($pipe_working) {
+    foreach ($pipe_working->layout as $module) {
+      $this->layout[$module->id]['x'] = $module->xy[0];
+      $this->layout[$module->id]['y'] = $module->xy[1];
+    }
   }
 }
