@@ -9,6 +9,8 @@ namespace PipeEmulator\Module;
 
 /**
  * Defines a union pipe module class.
+ *
+ * In Yahoo! Pipes union modules combined multiple inputs together.
  */
 class Union extends ModuleBase implements ModuleInterface {
 
