@@ -8,14 +8,23 @@
 namespace PipeEmulator\Module;
 
 /**
- * Description of output
+ * Defines a loop pipe module class.
  *
- * @author David Cameron
+ * In Yahoo! Pipes loop modules iterated over each item in the input, sending
+ * each item to an embedded sub-module for processing.
  */
 class Loop extends ModuleBase implements ModuleInterface {
 
+  /**
+   * A ModuleBase object that the loop module uses to process the input.
+   *
+   * @var ModuleBase
+   */
   protected $embed;
 
+  /**
+   * {@inheritdoc}
+   */
   public function __construct($module_definition, $outputs) {
     parent::__construct($module_definition, $outputs);
 
@@ -26,6 +35,9 @@ class Loop extends ModuleBase implements ModuleInterface {
     $this->embed = new $class($embedded_module, array());
   }
 
+  /**
+   * Sends the input to the embedded sub-module for processing.
+   */
   public function evaluateInput($input) {
     return $this->embed->evaluateInput($input);
   }
