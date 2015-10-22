@@ -58,9 +58,13 @@ class Rssitembuilder extends ModuleBase implements ModuleInterface {
         $input[$field] = $input[$this->conf->{$field}->subkey];
       }
       // The value property indicates text that should be copied into this
-      // field. "[object Object]" was a bugged value that occurred in Yahoo
-      // Pipes when a value was deleted from this module.
-      if (isset($this->conf->{$field}->value) && $this->conf->{$field}->value != '[object Object]') {
+      // field.
+      if (isset($this->conf->{$field}->value)) {
+        // "[object Object]" was a bugged value that occurred in Yahoo Pipes
+        // when a value was deleted from this module.
+        if ($this->conf->{$field}->value == '[object Object]') {
+          $this->conf->{$field}->value = '';
+        }
         $input[$field] = $this->conf->{$field}->value;
       }
     }
