@@ -51,18 +51,20 @@ class PipeUI {
     $layout = $this->pipe->getLayout();
     list($x_offset, $y_offset) = $this->getCoordinateOffsets($layout);
 
-    $output = '<head><style>.module, .embedded-module { background: #EEEEEE; border: 1px solid #000000; border-radius: 3px; padding: 2px;} .module { position: absolute; width: 200px; } .module-label { font-weight: bold; } .rssitembuilder-conf { height: 252px; overflow: scroll; }</style></head><body>';
+    $styles = array();
+    $output = '';
 
     foreach ($this->pipe->getModules() as $id => $module) {
-      $output .= '<div class="module" style="top: ' . ($layout[$id]['y'] + $y_offset) . 'px; left: ' . ($layout[$id]['x'] + $x_offset) . 'px;">';
+      $styles[] = '.module-' . $id . ' { left: ' . ($layout[$id]['x'] + $x_offset) . 'px; top: ' . ($layout[$id]['y'] + $y_offset) . 'px; }';
+      $output .= '<div class="module module-' . strtolower(substr(get_class($module), 20)) . ' module-' . $id . '">';
       $output .= '<div class="module-label">' . $module->getLabel() . '</div>';
       $content = $module->getContent();
       if ($content != '') {
         $output .= $content;
       }
-      $output .= '</div>';
+      $output .= "</div>\n";
     }
-    return $output . '</body>';
+    return '<style>' . implode("\n", $styles) . '</style>' . $output;
   }
 
   /**
