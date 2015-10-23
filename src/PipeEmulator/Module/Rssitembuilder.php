@@ -70,4 +70,26 @@ class Rssitembuilder extends ModuleBase implements ModuleInterface {
     }
     return $input;
   }
+
+  /**
+   * @{inheritdoc}
+   */
+  public function getContent() {
+    $output = '<div class="rssitembuilder-conf">';
+    foreach ($this->conf as $field => $field_conf) {
+      $output .= '<div>' . $field . ': ';
+      $value = '';
+      if (isset($field_conf->subkey)) {
+        $output .= 'subkey ';
+        $value = $field_conf->subkey;
+      }
+      elseif (isset($field_conf->value)) {
+        $output .= 'value ';
+        $value = $field_conf->value;
+      }
+      $output .= '<input type="text" value="' . $value . '" /></div>';
+    }
+    $output .= '</div>';
+    return $output;
+  }
 }

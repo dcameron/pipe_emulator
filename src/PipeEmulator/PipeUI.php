@@ -51,7 +51,7 @@ class PipeUI {
     $layout = $this->pipe->getLayout();
     list($x_offset, $y_offset) = $this->getCoordinateOffsets($layout);
 
-    $output = '<style>.module, .embedded-module { background: #EEEEEE; border: 1px solid #000000; border-radius: 3px; padding: 2px;} .module { position: absolute; width: 200px; } .module-label { font-weight: bold; }</style>';
+    $output = '<head><style>.module, .embedded-module { background: #EEEEEE; border: 1px solid #000000; border-radius: 3px; padding: 2px;} .module { position: absolute; width: 200px; } .module-label { font-weight: bold; } .rssitembuilder-conf { height: 252px; overflow: scroll; }</style></head><body>';
 
     foreach ($this->pipe->getModules() as $id => $module) {
       $output .= '<div class="module" style="top: ' . ($layout[$id]['y'] + $y_offset) . 'px; left: ' . ($layout[$id]['x'] + $x_offset) . 'px;">';
@@ -62,7 +62,7 @@ class PipeUI {
       }
       $output .= '</div>';
     }
-    return $output;
+    return $output . '</body>';
   }
 
   /**
