@@ -2,7 +2,7 @@
 
 /*
  * @file
- * Contains \PipeEmulator\Pipe.
+ * Contains \PipeEmulator\PipeUI.
  */
 
 namespace PipeEmulator;
