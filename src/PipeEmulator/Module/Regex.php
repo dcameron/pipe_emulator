@@ -54,7 +54,9 @@ class Regex extends ModuleBase implements ModuleInterface {
       $field = $rule->field->value;
       $match = '~' . $rule->match->value . '~';
       $replace = $rule->replace->value;
-      $input[$field] = preg_replace($match, $replace, $input[$field]);
+      if (isset($input[$field])) {
+        $input[$field] = preg_replace($match, $replace, $input[$field]);
+      }
     }
     return $input;
   }
