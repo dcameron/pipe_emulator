@@ -42,4 +42,12 @@ interface ModuleInterface {
    *   The text to be displayed.
    */
   public function getContent();
+
+  /**
+   * Returns a YAML representation of the module's definition.
+   *
+   * @return string
+   *   The YAML definition of the module.
+   */
+  public function getYaml();
 }
