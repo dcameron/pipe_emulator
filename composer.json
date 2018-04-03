@@ -1,0 +1,14 @@
+{
+    "name": "dcameron/pipe_emulator",
+    "description": "A set of tools for viewing and generating output from old Yahoo! Pipe definitions.",
+    "type": "library",
+    "license": "GPL 2.0",
+    "authors": [
+        {
+            "name": "David Cameron",
+            "email": "david@cadeyrn.us"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
