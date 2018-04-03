@@ -1,10 +1,5 @@
 <?php
 
-/*
- * @file
- * Contains \PipeEmulator\Module\Rename.
- */
-
 namespace PipeEmulator\Module;
 
 /**

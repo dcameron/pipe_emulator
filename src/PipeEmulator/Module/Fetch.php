@@ -1,10 +1,5 @@
 <?php
 
-/*
- * @file
- * Contains \PipeEmulator\Module\Fetch.
- */
-
 namespace PipeEmulator\Module;
 
 /**

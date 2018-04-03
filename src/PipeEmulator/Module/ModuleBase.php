@@ -1,10 +1,5 @@
 <?php
 
-/*
- * @file
- * Contains \PipeEmulator\Module\ModuleBase.
- */
-
 namespace PipeEmulator\Module;
 
 /**

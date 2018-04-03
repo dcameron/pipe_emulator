@@ -1,10 +1,5 @@
 <?php
 
-/*
- * @file
- * Contains \PipeEmulator\Module\Regex.
- */
-
 namespace PipeEmulator\Module;
 
 /**

@@ -1,10 +1,5 @@
 <?php
 
-/*
- * @file
- * Contains \PipeEmulator\Module\Uniq.
- */
-
 namespace PipeEmulator\Module;
 
 /**

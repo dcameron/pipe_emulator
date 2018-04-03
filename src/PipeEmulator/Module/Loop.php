@@ -1,10 +1,5 @@
 <?php
 
-/*
- * @file
- * Contains \PipeEmulator\Module\Loop.
- */
-
 namespace PipeEmulator\Module;
 
 /**

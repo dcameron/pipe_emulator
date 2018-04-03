@@ -1,10 +1,5 @@
 <?php
 
-/*
- * @file
- * Contains \PipeEmulator\Module\Union.
- */
-
 namespace PipeEmulator\Module;
 
 /**
