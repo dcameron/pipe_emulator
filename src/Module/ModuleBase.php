@@ -62,4 +62,12 @@ abstract class ModuleBase implements ModuleInterface {
   public function getContent() {
     return '';
   }
+
+  /**
+   * @{inheritdoc}
+   */
+  public function getYaml() {
+    return $this->id . ":\n  type: " . substr(get_class($this), 20) . "\n  outputs:\n    - " . implode("\n    - ", $this->outputs);
+  }
+
 }

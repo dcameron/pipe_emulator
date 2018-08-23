@@ -125,4 +125,19 @@ class Filter extends ModuleBase implements ModuleInterface {
     }
     return $output;
   }
+
+  /**
+   * @{inheritdoc}
+   */
+  public function getYaml() {
+    $output = parent::getYaml() . "\n  action: " . $this->mode . "\n  terms:\n";
+    foreach ($this->rules as $rule) {
+      if (empty($rule->value->value)) {
+        continue;
+      }
+      $output .= '    - ' . trim($rule->value->value) . "\n";
+    }
+    return $output;
+  }
+
 }
